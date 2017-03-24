@@ -1,5 +1,3 @@
-alert("test");
-
 // ------------------------------ get user info ---------------------------------------------------------
 // jQuery.ajax({
 // 	url: "http://10.10.20.6/apigw/devnetlabapi/cdp/v1/accounts/username?loginName=devoperator9%40cdp.com", 
@@ -19,7 +17,7 @@ alert("test");
 
 // ------------------------------- get all the Parking Spots ----------------------------------------------------
 
-function getAllParkingSpots() {
+//function getAllParkingSpots() {
 
 	spots = 
 
@@ -56,7 +54,7 @@ function getAllParkingSpots() {
 				result.push({"sid": sid, "occupied": occupied});
 			}
 
-			$('#lights').html(JSON.stringify(result));
+			console.log(JSON.stringify(result));
 			//console.log();
 		}, 
 		error: function(error) {
@@ -65,4 +63,4 @@ function getAllParkingSpots() {
 		}
 	});
 
-}
+//}
