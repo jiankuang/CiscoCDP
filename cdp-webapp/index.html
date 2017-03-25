@@ -1,7 +1,184 @@
 <html>
-<head></head>
+<head>
+	<title>Parking Reservation System</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="app.css">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 <body>
-	<div id="lights"></div>
+	<div class="container-fluid">
+		  <div class="row">
+		    <div class="col-sm-8 main-area">
+		    	<div class="parking-container">
+					<div>
+					  <div class="parking-headline">
+					    <h1>Please select a parking</h1>
+					  </div>
+					  	<ol class="">
+					    <li class="row-1">
+					      <ul class="parking-lots" type="A">
+					        <li class="parking-lot">
+					          <input type="checkbox" id="1A" />
+					          <label for="1A">1A</label>
+					        </li>
+					        <li class="parking-lot">
+					          <input type="checkbox" id="1B" />
+					          <label for="1B">1B</label>
+					        </li>
+					        <li class="parking-lot">
+					          <input type="checkbox" disabled id="1D" />
+					          <label for="1D">Occupied</label>
+					        </li>
+					        <li class="parking-lot">
+					          <input type="checkbox" id="2B" />
+					          <label for="2B">1D</label>
+					        </li>
+					        <li class="parking-lot">
+					          <input type="checkbox" id="2C" />
+					          <label for="2C">1E</label>
+					        </li>
+					      </ul>
+					    </li>
+					    <li class="row-2">
+					      <ul class="parking-lots" type="A">
+					        <li class="parking-lot">
+					          <input type="checkbox" id="1A" />
+					          <label for="1A">2A</label>
+					        </li>
+					        <li class="parking-lot">
+					          <input type="checkbox" disabled id="1D" />
+					          <label for="1D">Occupied</label>
+					        </li>
+					        <li class="parking-lot">
+					          <input type="checkbox" id="1B" />
+					          <label for="1B">2C</label>
+					        </li>
+					        <li class="parking-lot">
+					          <input type="checkbox" id="2B" />
+					          <label for="2B">2D</label>
+					        </li>
+					        <li class="parking-lot">
+					          <input type="checkbox" id="2C" />
+					          <label for="2C">2E</label>
+					        </li>
+					      </ul>
+					    </li>
+					    <li class="row-3">
+					      <ul class="parking-lots" type="A">
+					        <li class="parking-lot">
+					          <input type="checkbox" id="1A" />
+					          <label for="1A">3A</label>
+					        </li>
+					        <li class="parking-lot">
+					          <input type="checkbox" disabled id="1D" />
+					          <label for="1D">Occupied</label>
+					        </li>
+					        <li class="parking-lot">
+					          <input type="checkbox" id="1B" />
+					          <label for="1B">3C</label>
+					        </li>
+					        <li class="parking-lot">
+					          <input type="checkbox" id="2B" />
+					          <label for="2B">3D</label>
+					        </li>
+					        <li class="parking-lot">
+					          <input type="checkbox" id="2C" />
+					          <label for="2C">3E</label>
+					        </li>
+					      </ul>
+					    </li>
+					    <li class="row-4">
+					      <ul class="parking-lots" type="A">
+					        <li class="parking-lot">
+					          <input type="checkbox" id="1A" />
+					          <label for="1A">4A</label>
+					        </li>
+					        
+					        <li class="parking-lot">
+					          <input type="checkbox" id="1B" />
+					          <label for="1B">4B</label>
+					        </li>
+					        <li class="parking-lot">
+					          <input type="checkbox" disabled id="1D" />
+					          <label for="1D">Occupied</label>
+					        </li>
+					        <li class="parking-lot">
+					          <input type="checkbox" id="2B" />
+					          <label for="2B">4D</label>
+					        </li>
+					        <li class="parking-lot">
+					          <input type="checkbox" id="2C" />
+					          <label for="2C">4E</label>
+					        </li>
+					      </ul>
+					    </li>
+					    <li class="row-5">
+					      <ul class="parking-lots" type="A">
+					        <li class="parking-lot">
+					          <input type="checkbox" id="2A" />
+					          <label for="2A">5A</label>
+					        </li>
+					        <li class="parking-lot">
+					          <input type="checkbox" id="2B" />
+					          <label for="2B">5B</label>
+					        </li>
+					        <li class="parking-lot">
+					          <input type="checkbox" id="2C" />
+					          <label for="2C">5C</label>
+					        </li>
+					        <li class="parking-lot">
+					          <input type="checkbox" id="2B" />
+					          <label for="2B">5D</label>
+					        </li>
+					        <li class="parking-lot">
+					          <input type="checkbox" disabled id="1D" />
+					          <label for="1D">Occupied</label>
+					        </li>
+					      </ul>
+					    </li>
+					  </ol>
+					  <div class="exit exit--back fuselage">
+					    
+					  </div>
+					</div>
+				</div>
+			    <div class="lot-description">
+			    	<div style="display: flex; align-items: center;">
+			    		<p class="color-box" style="background: #808080"></p>
+			    		<p>Reserved</p>
+			    	</div>
+					<div style="display: flex; align-items: center;">
+			    		<p class="color-box" style="background: #7FFFD4;"></p>
+			    		<p>Available</p>
+			    	</div>
+			    </div>
+		    </div>
+
+		    <div class="col-sm-4 side-area"">
+		    	<div class="sidebar">
+		    		<div class="parking-headline">
+					    <h1>Parking Lot Information</h1>
+					  </div>
+		    		<div class="lot-info">
+		    			<h3>Parking Number :</h3>
+		    		</div>
+		    		<div class="lot-info">
+		    			<h3>Availability :</h3>
+		    		</div>
+		    		<div class="lot-info">
+		    			<h3>Price : $10</h3>
+		    		</div>
+		    		<div class="reserve-btn">
+		    			<button type="button" onclick="alert('Hello world!')">RESERVE</button>
+		    		</div>
+				</div>
+		    </div>
+		    
+		  </div>
+		</div>
 <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
