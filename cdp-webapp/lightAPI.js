@@ -54,6 +54,47 @@ jQuery.ajax({
 	}, 
 	error: function(error) {
 		alert("error happend!");
-		alert(error);
+		alert(JSON.stringify(error));
 	}
 });
+
+
+jQuery.ajax({
+
+	url: "http://10.10.20.6/apigw/devnetlabapi/cdp/v1/devices/lighting?UserKey=500109&SensorCustomerKey=500050&AppKey=CDP-App", 
+	type: "POST",
+
+	beforeSend: function(xhr) {
+		xhr.setRequestHeader('WSO2-Authorization', 'oAuth Bearer 32b37facf21b4deadc93a261e2dc4f2');
+		xhr.setRequestHeader('Authorization', 'Bearer 9sY1mKjZgJDa0yw3LHBdaJetU68y');
+		xhr.setRequestHeader('Accept', 'application/json');
+		xhr.setRequestHeader('Content-Type', 'application/json');
+	},
+
+	postData = {
+	  "Query": {
+	    "Find": {
+	      "Format":"version",
+	      "Light": {
+	        "sid": sid 
+	      }
+	    },
+	    "for":{
+	    	"each":"light",
+	    	"in":"Find.Result.Light",
+	    	"SetLocalData":{
+	    		"key":"light.state.intensityLevel.value",
+	    		"value": intensity #"0"
+	    	}
+	    },
+	    "Update": {
+	    	"from": "Result",
+	    	"Include": "$Response.Message.Value.Find"
+	    }
+	  }
+	}
+
+
+});
+
+
