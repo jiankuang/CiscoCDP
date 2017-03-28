@@ -1,0 +1,28 @@
+{  
+   "EnvironmentSensor":{  
+      "sid":"Simulated__DEVNET002__L1",
+      "label":"L1",
+      "geocoordinates":{  
+         "latitude":37.42270781,
+         "longitude":-121.964651
+      },
+      "thirdPartyId":"L1",
+      "sensorCustomerId":"SDPCustomer_500050",
+      "providerDetails":{  
+         "provider":"simulator",
+         "providerId":"uysh2dvs2eu2mvln2kxl3z4dvhwcrhlk"
+      },
+      "ambientLight":{  
+         "reading":{  
+            "illuminance":{  
+               "value":2.0
+            }
+         }
+      },
+      "deviceType":"Sensor",
+      "sensorType":[  
+         "AmbientLight"
+      ],
+      "lastUpdated":"2017-01-10T13:11:33.694Z"
+   }
+}  

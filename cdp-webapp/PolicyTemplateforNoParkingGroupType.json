@@ -1,0 +1,112 @@
+{
+  "Find": {
+    "Status": "Success",
+    "Result": [
+      {
+        "GroupTemplate": {
+          "sid": "GroupTemplate.NoParkingDurationFare",
+          "defaultBindings": {
+            "binding": [
+              {
+                "paramVal": "ValidParking",
+                "paramName": "ZoneType"
+              }
+            ]
+          },
+          "optional": true,
+          "entityType": "PolicyTemplate",
+          "entityId": "PolicyTemplate.DurationAndFare",
+          "groupTypeId": "GroupType.NoParking"
+        },
+        "PolicyTemplate": {
+          "sid": "PolicyTemplate.DurationAndFare",
+          "name": "DurationAndFare",
+          "param": [
+            {
+              "dataType": "Sequence",
+              "defaultVal": "",
+              "name": "TimeSeq"
+            },
+            {
+              "dataType": "String",
+              "defaultVal": "[:[:$LocalData.Execution:]$Response.Message.Value.Find.Result.[:$Param.EntityType:].opParams.zoneType.Value:]",
+              "name": "ZoneType"
+            },
+            {
+              "dataType": "String",
+              "defaultVal": "",
+              "name": "EntityType"
+            },
+            {
+              "dataType": "String",
+              "defaultVal": "",
+              "name": "EntityId"
+            },
+            {
+              "dataType": "String",
+              "defaultVal": "",
+              "name": "Fare"
+            },
+            {
+              "dataType": "Number",
+              "defaultVal": "",
+              "name": "Duration"
+            },
+            {
+              "dataType": "Number",
+              "defaultVal": "[:[:$LocalData.Execution:]$Response.Message.Value.Find.Result.[:$Param.EntityType:].opParams.maxDurationMinutes.Value:]",
+              "name": "MaxDurationMinutes"
+            }
+          ],
+          "binding": [
+            {
+              "paramName": "ZoneType",
+              "paramVal": "ValidParking"
+            }
+          ],
+          "body": "[:$Param.RT:]{\"Execute\":{\"eid\":\"[:$Param.executionId:]\",\"schedule\":\"[:$Param.TimeSeq:]\",\"Action\":{\"SetLocalData\":{\"key\":\"Execution\",\"Value\":\"\"},\"SetRequest\":{\"Headers\":{\"appKey\":\"[:$Param.AppKey:]\",\"userKey\":\"[:$Param.UserKey:]\",\"sensorCustomerKey\":\"[:$Param.SensorCustomerKey:]\"},\"Message\":{\"Type\":\"xml\",\"Value\":{\"Query\":{\"Find\":{\"format\":\"version\",\"[:$Param.EntityType:]\":{\"sid\":\"[:$Param.EntityId:]\"}},\"If\":{\"condition\":\"[:[:$LocalData.Execution:]$Response.Message.Value.Find/boolean(Result/[:$Param.EntityType:]/sid):]\",\"then\":{\"If\":{\"Condition\":\"[:/boolean('[:$Param.Fare:]' ne '' and '[:$Param.Duration:]' ne ''):]\",\"Then\":{\"JavaScript\":{\"ResponseInterface\":{\"SetResponseData\":{\"key\":\"Message.Value.Find.Result.[:$Param.EntityType:].opParams.parkingRate.farePerMinute.Value\",\"value\":null}},\"Value\":\"var fare = [:$Param.Fare:]; var duration = [:$Param.Duration:]; var farePerMinute = fare/duration; ResponseInterface.SetResponseData.put('Value', farePerMinute); ResponseInterface;\"},\"SetResponseData\":{\"key\":\"Message.Value.Find.Result.[:$Param.EntityType:].opParams.parkingRate.durationMinutes.Value\",\"value\":\"[:$Param.Duration:]\"}}},\"SetResponseData\":[{\"key\":\"Message.Value.Find.Result.[:$Param.EntityType:].opParams.maxDurationMinutes.Value\",\"value\":\"[:$Param.MaxDurationMinutes:]\"},{\"key\":\"Message.Value.Find.Result.[:$Param.EntityType:].opParams.zoneType.Value\",\"value\":\"[:$Param.ZoneType:]\"}],\"Save\":{\"from\":\"Result\",\"Include\":\"[:[:$LocalData.Execution:]$Response.Message.Value.Find:]\"}}}}}}},\"DoRequest\":{\"Target\":\"CIMQueryInterface\"}}}}",
+          "description": "Sets fare and parking duration limits for a parking spot"
+        }
+      },
+      {
+        "GroupTemplate": {
+          "sid": "GroupTemplate.NoParkingNoParking",
+          "optional": false,
+          "entityType": "PolicyTemplate",
+          "entityId": "PolicyTemplate.NoParking",
+          "groupTypeId": "GroupType.NoParking"
+        },
+        "PolicyTemplate": {
+          "sid": "PolicyTemplate.NoParking",
+          "name": "NoParking",
+          "param": [
+            {
+              "dataType": "Sequence",
+              "name": "TimeSeq"
+            },
+            {
+              "dataType": "String",
+              "name": "ZoneType"
+            },
+            {
+              "dataType": "String",
+              "name": "EntityType"
+            },
+            {
+              "dataType": "String",
+              "name": "EntityId"
+            }
+          ],
+          "binding": [
+            {
+              "paramName": "ZoneType",
+              "paramVal": "NoParking"
+            }
+          ],
+          "body": "[:$Param.RT:]{\"Execute\":{\"eid\":\"[:$Param.executionId:]\",\"schedule\":\"[:$Param.TimeSeq:]\",\"Action\":{\"SetLocalData\":{\"key\":\"Execution\",\"Value\":\"\"},\"SetRequest\":{\"Headers\":{\"appKey\":\"[:$Param.AppKey:]\",\"userKey\":\"[:$Param.UserKey:]\",\"sensorCustomerKey\":\"[:$Param.SensorCustomerKey:]\"},\"Message\":{\"Type\":\"xml\",\"Value\":{\"Query\":{\"Find\":{\"format\":\"version\",\"[:$Param.EntityType:]\":{\"sid\":\"[:$Param.EntityId:]\"}},\"If\":{\"condition\":\"[:[:$LocalData.Execution:]$Response.Message.Value.Find/boolean(Result/[:$Param.EntityType:]/sid):]\",\"then\":{\"SetResponseData\":{\"key\":\"Message.Value.Find.Result.[:$Param.EntityType:].opParams.zoneType.Value\",\"value\":\"NoParking\"},\"Save\":{\"from\":\"Result\",\"Include\":\"[:[:$LocalData.Execution:]$Response.Message.Value.Find:]\"}}}}}}},\"DoRequest\":{\"Target\":\"CIMQueryInterface\"}}}}",
+          "description": "Marks parkingSpot as NoParking"
+        }
+      }
+    ]
+  }
+}

@@ -16,12 +16,7 @@
 // });
 
 // ------------------------------- get all the Parking Spots ----------------------------------------------------
-
-//getAllParkingSpots();
-
 function getAllParkingSpots() {
-
-	spots = 
 
 	jQuery.ajax({
 		url: "http://10.10.20.6/apigw/devnetlabapi/cdp/v1/devices/parking?UserKey=500109&SensorCustomerKey=500050&AppKey=CDP-App", 
@@ -42,11 +37,9 @@ function getAllParkingSpots() {
 			xhr.setRequestHeader('Content-Type', 'application/json');
 		},
 		success: function(data){
-			var result = [];
+			var results = [];
 
 			spots = data['Find']['Result'];
-
-			console.log(spots.length);
 
 			for(var i=0; i < spots.length; i++) {
 				var spot = spots[i]['ParkingSpot'];
@@ -54,22 +47,25 @@ function getAllParkingSpots() {
 				var label = spot['label'];
 				var occupied = spot['state']['occupied'];
 
-				result.push({"sid": sid, "label": label, "occupied": occupied});
+				results.push({"sid": sid, "label": label, "occupied": occupied});
 			}
 
-			console.log(JSON.stringify(result));
-			//console.log();
+			return results;
 		}, 
 		error: function(error) {
-			alert("error happend!");
+			alert("error happend from getAllParkingSpots!");
 			alert(error);
 		}
 	});
 }
 
+var spots = getAllParkingSpots(); 
+console.log('*********************************************')
+console.log(JSON.stringify(spots));
+
 // ----------------------------- get get Parking Spots in a Parking Space ----------------------------------------------------
 
-getParkingSpotsBySpace("Simulated__DEVNET002__spacez001");
+//getParkingSpotsBySpace("Simulated__DEVNET002__spacez001");
 
 function getParkingSpotsBySpace(spaceId) {
 

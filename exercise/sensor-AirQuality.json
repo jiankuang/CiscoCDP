@@ -1,0 +1,74 @@
+{  
+   "EnvironmentSensor":{  
+      "sid":"Simulated__DEVNET002__AQ1",
+      "airQuality":{  
+         "reading":{  
+            "co2":{  
+               "value":8.0
+            },
+            "no2":{  
+               "value":1.0
+            },
+            "pm2p5":{  
+               "value":3.0
+            },
+            "pm10":{  
+               "value":10.0
+            },
+            "so2":{  
+               "value":2.0
+            },
+            "o3":{  
+               "value":4.0
+            }
+         },
+         "aqi":{  
+            "no2":{  
+               "sensitiveGroups":"none",
+               "category":"good",
+               "advisory":"none",
+               "period":"PT1H",
+               "effects":"none",
+               "value":20.0,
+               "sources":"emmission from vehicles in traffic"
+            },
+            "so2":{  
+               "effects":"none",
+               "category":"good",
+               "sensitiveGroups":"none",
+               "advisory":"none",
+               "value":30.0,
+               "period":"PT24H",
+               "sources":"fossil fuel combustion at power plants"
+            },
+            "aqi":{  
+               "sensitiveGroups":"People with heart and lung diseases,children, people of lower SES and older people",
+               "period":"PT1D",
+               "announcement":"particulate matter 10 micrometers or less in diameter is the responsible pollutant",
+               "sources":"emmission from vehicles in traffic",
+               "category":"Unhealthy for Sensitive Groups",
+               "advisory":"Peoplewith heart or lung disease, older adults, children, and people of lower SES should reduce prolonged or heavy exertion.",
+               "value":10.0,
+               "indexPollutant":"pm10",
+               "effects":"Increasing likelihood of respiratory symptoms in sensitive individuals, aggravation of heart or lung disease and premature mortality in people with cardiopulmonary disease, older adults, and people of lower SES."
+            }
+         }
+      },
+      "label":"AQ1",
+      "geocoordinates":{  
+         "latitude":37.40235174,
+         "longitude":-121.9478933
+      },
+      "thirdPartyId":"AQ1",
+      "sensorCustomerId":"SDPCustomer_500050",
+      "providerDetails":{  
+         "provider":"simulator",
+         "providerId":"udvddxcs7kezcmtcxibez6lvrw4pek5l"
+      },
+      "deviceType":"Sensor",
+      "sensorType":[  
+         "AirQuality"
+      ],
+      "lastUpdated":"2017-01-10T13:11:34.878Z"
+   }
+}

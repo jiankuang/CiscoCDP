@@ -1,0 +1,28 @@
+{  
+  "EnvironmentSensor":{  
+     "sid":"Simulated__DEVNET002__N1",
+     "label":"N1",
+     "geocoordinates":{  
+        "latitude":37.40099665,
+        "longitude":-121.9347701
+     },
+     "ambientNoise":{  
+        "reading":{  
+           "noise":{  
+              "value":1.0
+           }
+        }
+     },
+     "thirdPartyId":"N1",
+     "sensorCustomerId":"SDPCustomer_500050",
+     "providerDetails":{  
+        "provider":"simulator",
+        "providerId":"4rpd37cax2whztd2gdb6yyaanetjks4h"
+     },
+     "deviceType":"Sensor",
+     "sensorType":[  
+        "AmbientNoise"
+     ],
+     "lastUpdated":"2017-01-10T13:11:38.426Z"
+  }
+}
