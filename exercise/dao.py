@@ -221,7 +221,7 @@ def updateParkingSpotOccupationStatus(sid, occupied):
 	    "Find": {
 	      "Format":"version",
 	      "ParkingSpot": {
-	        "sid": sid # 
+	        "sid": sid 
 	      }
 	    },
 	    "for":{

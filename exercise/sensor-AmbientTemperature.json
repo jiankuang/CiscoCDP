@@ -1,0 +1,28 @@
+{  
+   "EnvironmentSensor":{  
+      "sid":"Simulated__DEVNET002__T1",
+      "label":"T1",
+      "ambientTemperature":{  
+         "reading":{  
+            "temperature":{  
+               "value":1.0
+            }
+         }
+      },
+      "geocoordinates":{  
+         "latitude":37.3960339,
+         "longitude":-121.9024369
+      },
+      "thirdPartyId":"T1",
+      "sensorCustomerId":"SDPCustomer_500050",
+      "providerDetails":{  
+         "provider":"simulator",
+         "providerId":"c3aj4poiyg7spr73vmdkpgaigtd5i4fh"
+      },
+      "deviceType":"Sensor",
+      "sensorType":[  
+         "AmbientTemperature"
+      ],
+      "lastUpdated":"2016-12-20T15:09:58.131Z"
+   }
+}

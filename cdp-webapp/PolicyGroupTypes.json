@@ -1,0 +1,63 @@
+{
+  "Find": {
+    "Status": "Success",
+    "Result": [
+      {
+        "GroupType": {
+          "sid": "GroupType.24Hour",
+          "domainName": "Parking",
+          "name": "24Hour",
+          "description": "Rates etc at various times"
+        }
+      },
+      {
+        "GroupType": {
+          "sid": "GroupType.HandicappedParking",
+          "domainName": "Parking",
+          "name": "HandicappedParking",
+          "description": "Marks parkingSpot as HandicappedParking at certain time of day"
+        }
+      },
+      {
+        "GroupType": {
+          "sid": "GroupType.LightIntensity",
+          "domainName": "Light",
+          "name": "LightIntensity",
+          "description": "Specifies desired light intensity level at certain time of day"
+        }
+      },
+      {
+        "GroupType": {
+          "sid": "GroupType.LoadingZone",
+          "domainName": "Parking",
+          "name": "LoadingZone",
+          "description": "Marks parkingSpot as LoadingZone at certain time of day"
+        }
+      },
+      {
+        "GroupType": {
+          "sid": "GroupType.NoParking",
+          "domainName": "Parking",
+          "name": "NoParking",
+          "description": "Marks parkingSpot as NoParking at certain time of day"
+        }
+      },
+      {
+        "GroupType": {
+          "sid": "GroupType.ReservedParking",
+          "domainName": "Parking",
+          "name": "ReservedParking",
+          "description": "Marks parkingSpot as ReservedParking at certain time of day"
+        }
+      },
+      {
+        "GroupType": {
+          "sid": "GroupType.StandingZone",
+          "domainName": "Parking",
+          "name": "StandingZone",
+          "description": "Marks parkingSpot as StandingZone at certain time of day"
+        }
+      }
+    ]
+  }
+}
