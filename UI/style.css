@@ -1,0 +1,59 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+.slot {
+    background: gray;
+    padding: 30px !important;
+    margin:15px!important;
+}
+
+.slot.available {
+    background: #7FFFD4;
+    cursor: pointer;
+}
+
+.slot.reserved {
+    background: #808080;
+}
+
+.slot.available.selected {
+     border: 7px solid #088bf5;
+}
+
+.slot.reserved.selected {
+    border: 7px solid #088bf5;
+}
+
+
+.available-color-box {
+    background: #7FFFD4;
+    padding: 5px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.reserved-color-box {
+    background: #808080;
+    padding: 5px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.booked-avatar{
+    border-radius: 30px;
+    height: 50px;
+    width: 50px;
+}
+
+.light-on{
+    background:yellow;
+}

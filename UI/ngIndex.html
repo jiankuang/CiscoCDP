@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-sm-8 main-area">
+        <div class="parking-container">
+            <div>
+                <div class="row">
+                    <div class="col-lg-12" style="text-align: center">
+                        <h1>STADIUM EVENT PARKING</h1>
+                    </div>
+                </div>
+                <div class="lot-description">
+                    <div style="display: flex; align-items: center;">
+                        <p class="reserved-color-box" style="background: #808080"></p>
+                        <p> Reserved</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <p class="available-color-box" style="background: #7FFFD4;"></p>
+                        <p> Available</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="list-inline" ng-if="parkings">
+                            <li ng-repeat="parking in parkings" class="slot " ng-class="getSlotTileClass(parking)" ng-click="selectSlot(parking, $index)">
+                            {{parking.label}}
+                            <i class="fa fa-lightbulb-o " ng-class="getBulbClass(parking)"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4 side-area" style="margin-top: 8em;">
+        <div class="sidebar">
+            <div class="parking-headline ">
+                <h2>Parking Spot Details</h2>
+            </div>
+            <div class="lot-info ">
+                <h4>Parking Spot Number : {{selectedSlot.label}}</h3>
+            </div>
+            <div class="lot-info ">
+                <h4>Availability : {{!selectedSlot.occupied?'Yes':'No'}}</h4>
+            </div>
+            <div class="reserve-btn ">
+                <button type="button" class="btn btn-success "  ng-if="!selectedSlot.occupied" ng-click="reserveSlot()">RESERVE</button>
+                <button type="button" class="btn btn-cancel "  ng-if="selectedSlot.occupied" ng-click="cancelSlot()">CANCEL</button>
+            </div>
+        </div>
+    </div>
+</div>
