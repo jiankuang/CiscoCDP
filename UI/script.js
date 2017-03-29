@@ -244,6 +244,7 @@ appRoot.controller('IndexCtrl', function ($scope, MyService,$route, blockUI) {
     $scope.addIntensityToParking = function () {
         for (i = 0; i < $scope.parkings.length; i++) {
             $scope.parkings[i]['intensityLevel'] = $scope.lights[i].intensityLevel;
+            $scope.parkings[i]['lightId'] = $scope.lights[i].sid;
         }
         console.log($scope.parkings);
     }
@@ -267,6 +268,7 @@ appRoot.controller('IndexCtrl', function ($scope, MyService,$route, blockUI) {
         //     return false;
         $scope.selectedSlot = parking;
         $scope.selectedSlot.index = index;
+                $scope.setIsAvailableLabel()
     }
 
     $scope.getReserveButtonClass = function (selectedSlot) {
@@ -307,7 +309,7 @@ appRoot.controller('IndexCtrl', function ($scope, MyService,$route, blockUI) {
         MyService.slotResource.reserve(postParams).then(
             function (slot) {
                 blockUI.stop();
-                $scope.updateLightIntensity(isReserve ? 0 : 100);
+                $scope.updateLightIntensity(isReserve ? 100 : 0);
             },
             function (err) {
                 console.log('some error occured', err);
@@ -343,15 +345,26 @@ appRoot.controller('IndexCtrl', function ($scope, MyService,$route, blockUI) {
         };
         MyService.slotResource.updateIntensitylevel(postParams).then(
             function (lights) {
+                $scope.selectedSlot=null;
                 $scope.getLights();
+                $scope.setIsAvailableLabel()
                 //$scope.slots = slots;
                 blockUI.stop();
-                $route.reload();
+                // $route.reload();
             },
             function (err) {
                 console.log('some error occured', err);
                 blockUI.stop();
             });
+    }
+
+    $scope.setIsAvailableLabel=function(){
+        if(!$scope.selectedSlot)
+            $scope.isAvailableLabel='';
+        else if(!$scope.selectedSlot.occupied)
+             $scope.isAvailableLabel= 'Yes';
+        else
+            $scope.isAvailableLabel= 'No';
     }
 });
 

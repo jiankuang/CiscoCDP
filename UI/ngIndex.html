@@ -32,7 +32,7 @@
     </div>
 
     <div class="col-sm-4 side-area" style="margin-top: 8em;">
-        <div class="sidebar">
+        <div class="sidebar" style="position: fixed;">
             <div class="parking-headline ">
                 <h2>Parking Spot Details</h2>
             </div>
@@ -40,10 +40,16 @@
                 <h4>Parking Spot Number : {{selectedSlot.label}}</h3>
             </div>
             <div class="lot-info ">
-                <h4>Availability : {{!selectedSlot.occupied?'Yes':'No'}}</h4>
+                <h4>Availability : {{isAvailableLabel}}</h4>
+            </div>
+            <div class="lot-info ">
+                <h4>Light Id : {{selectedSlot.lightId}}</h4>
+            </div>
+            <div class="lot-info ">
+                <h4>Light Intensity : {{selectedSlot.intensityLevel}}</h4>
             </div>
             <div class="reserve-btn ">
-                <button type="button" class="btn btn-success "  ng-if="!selectedSlot.occupied" ng-click="reserveSlot()">RESERVE</button>
+                <button type="button" class="btn btn-success " ng-disabled="!selectedSlot"  ng-if="!selectedSlot.occupied" ng-click="reserveSlot()">RESERVE</button>
                 <button type="button" class="btn btn-cancel "  ng-if="selectedSlot.occupied" ng-click="cancelSlot()">CANCEL</button>
             </div>
         </div>
